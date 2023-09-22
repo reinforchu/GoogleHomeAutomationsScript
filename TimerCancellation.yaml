@@ -1,0 +1,26 @@
+metadata:
+  name: TimerCancellation
+  description: Say Timer Stop when timer cancel
+
+inputValue:
+  cmdTimerCancel: "タイマーキャンセル"
+input:
+  cmdTimerCancel:
+    metadata:
+      name:
+        en: Command TimerCancel
+      description:
+        en: TimerCancel commnad
+    selector:
+      type: text
+
+automations:
+  starters:
+    - type: assistant.event.OkGoogle
+      eventData: query
+      is: "タイマー ストップ"
+
+  actions:
+    - type: assistant.command.OkGoogle
+      devices: キッチン - キッチン
+      okGoogle: $cmdTimerCancel

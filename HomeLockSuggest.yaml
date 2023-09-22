@@ -1,0 +1,28 @@
+metadata:
+  name: HomeLockSuggest
+  description: Notification to suggest locking with motion sensor when unlocked
+
+automations:
+  starters:
+    - type: device.event.PersonDetection
+      device: 玄関のドアホン - 玄関
+      for: 10sec
+      suppressFor: 25min
+
+  condition:
+    type: not
+    condition:
+      type: and
+      conditions:
+        - type: device.state.LockUnlock
+          state: isLocked
+          is: true
+          device: 家 - 玄関
+        - type: device.state.Online
+          state: online
+          is: false
+          device: 家 - 玄関
+
+  actions:
+    - type: assistant.command.Broadcast
+      message: "家の鍵が空いています。鍵を閉めることをおすすめします。"

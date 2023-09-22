@@ -1,0 +1,28 @@
+metadata:
+  name: WakeupResetSpeakerVolume
+  description: All speaker devices set default volume value when wakeup
+
+automations:
+  starters:
+    type: time.schedule
+    at: 07:00:00 AM
+
+  actions:
+    - type: assistant.command.OkGoogle
+      devices: 制御盤 - サーバールーム
+      okGoogle: "音量を 40% に上げて。"
+    - type: assistant.command.OkGoogle
+      devices: キッチン - キッチン
+      okGoogle: "音量を 40% に上げて。"
+    - type: assistant.command.OkGoogle
+      devices: ダイニングルーム - ダイニングルーム
+      okGoogle: "音量を 50% に上げて。"
+    - type: assistant.command.OkGoogle
+      devices: 寝室 - 寝室
+      okGoogle: "音量を 30% に上げて。"
+    - type: assistant.command.OkGoogle
+      devices: 和室 - 和室
+      okGoogle: "音量を 40% に上げて。"
+    - type: assistant.command.OkGoogle
+      devices: 玄関 - 玄関
+      okGoogle: "音量を 40% に上げて。"

@@ -1,0 +1,13 @@
+metadata:
+  name: POST
+  description: Post motion detection
+
+automations:
+  starters:
+    - type: device.event.MotionDetection
+      device: 玄関のドアホン - 玄関
+      # Modify doorbell device name
+
+  actions:
+    - type: assistant.command.Broadcast
+      message: "ポストに投函されました。"

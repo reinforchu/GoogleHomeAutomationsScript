@@ -1,0 +1,14 @@
+metadata:
+  name: RecyclableWaste
+  description: Recyclable waste notification
+
+automations:
+  starters:
+    - type: time.schedule
+      weekdays:
+        - SAT
+      at: 7:30 AM
+
+  actions:
+    - type: assistant.command.Broadcast
+      message: "今日は資源ごみの日です。午前8時までに出しましょう。"

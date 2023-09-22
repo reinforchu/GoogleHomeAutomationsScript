@@ -1,0 +1,22 @@
+metadata:
+  name: NetworkSpeedTestApp
+  description: Open fast.com
+
+automations:
+  starters:
+    - type: assistant.event.OkGoogle
+      eventData: query
+      is: "スピードテスト"
+
+  actions:
+    - type: assistant.command.Broadcast
+      message: "スピードテストを行います。"
+    - type: assistant.command.OkGoogle
+      devices: 制御盤 - サーバールーム
+      okGoogle: "ミュートして"
+    - type: assistant.command.OkGoogle
+      devices: 制御盤 - サーバールーム
+      okGoogle: "https://fast.com/ を開いて"
+    - type: assistant.command.OkGoogle
+      devices: 制御盤 - サーバールーム
+      okGoogle: "ミュートを解除して"

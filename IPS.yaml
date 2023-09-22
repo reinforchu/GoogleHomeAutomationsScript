@@ -1,0 +1,28 @@
+# Warning! This script is buggy!!!
+metadata:
+  name: IPS
+  description: Intrusion Prevention System
+
+automations:
+  starters:
+    - type: device.event.PersonDetection
+      device: 玄関のドアホン - 玄関
+
+  condition:
+    type: and
+    conditions:
+      - type: device.state.LockUnlock
+        device: 家 - 玄関
+        state: isLocked
+        is: false
+      - type: home.state.HomePresence
+        state: homePresenceMode
+        is: HOME # Trigger when you are home to avoid lockout.
+        # If no one is home, it will automatically lock after 1 hour.
+
+  actions:
+    - type: assistant.command.OkGoogle
+      devices: 和室 - 和室
+      okGoogle: "家を閉めて。"
+    - type: assistant.command.Broadcast
+      message: "家が解錠中に人物を検出しました。IPSにより強制的に施錠します。"

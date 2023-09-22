@@ -1,0 +1,12 @@
+metadata:
+  name: Sunrise
+  description: Sunrise notification
+
+automations:
+  starters:
+    - type: time.schedule
+      at: sunrise
+
+  actions:
+    - type: assistant.command.Broadcast
+      message: "おはようございます。日の出の時間です。"

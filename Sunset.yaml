@@ -1,0 +1,12 @@
+metadata:
+  name: Sunset
+  description: Sunset notification
+
+automations:
+  starters:
+    - type: time.schedule
+      at: sunset
+
+  actions:
+    - type: assistant.command.Broadcast
+      message: "お疲れさまです。日の入りです。"

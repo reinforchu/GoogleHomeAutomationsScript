@@ -1,0 +1,40 @@
+# !Warning! Test only!!!
+# 警告！ テスト目的です。本番では使用しないでください。大音量のNHK緊急地震速報チャイムが再生されます！！！
+metadata:
+  name: EEW
+  description: Earthquake Early Warning
+
+inputValue:
+  eew: "https://iptables.jp/ を開いて"
+  alert: "音量を 60% に上げて"
+input:
+  eew:
+    metadata:
+      name:
+        en: EEW
+      description:
+        en: Earthquake Early Warning Notification
+    selector:
+      type: text
+  alert:
+    metadata:
+      name:
+        en: Alert
+      description:
+        en: Alert Speaker Volume Control
+    selector:
+      type: text
+
+automations:
+  starters:
+    - type: assistant.event.OkGoogle
+      eventData: query
+      is: "緊急地震速報"
+
+  actions:
+    - type: assistant.command.OkGoogle
+      devices: 制御盤 - サーバールーム
+      okGoogle: $alert
+    - type: assistant.command.OkGoogle
+      devices: 制御盤 - サーバールーム
+      okGoogle: $eew

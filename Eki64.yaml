@@ -1,0 +1,22 @@
+metadata:
+  name: Eki64
+  description: Fortune
+
+automations:
+  starters:
+    - type: assistant.event.OkGoogle
+      eventData: query
+      is: "易占い"
+
+  actions:
+    - type: assistant.command.Broadcast
+      message: "易占いアプリを開きます。"
+    - type: assistant.command.OkGoogle
+      devices: 制御盤 - サーバールーム
+      okGoogle: "ミュートして"
+    - type: assistant.command.OkGoogle
+      devices: 制御盤 - サーバールーム
+      okGoogle: "https://eki64.com/ を開いて"
+    - type: assistant.command.OkGoogle
+      devices: 制御盤 - サーバールーム
+      okGoogle: "ミュートを解除して"

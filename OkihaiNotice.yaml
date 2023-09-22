@@ -1,0 +1,12 @@
+metadata:
+  name: OkihaiNotice
+  description: Package delivered notification
+
+automations:
+  starters:
+    - type: device.event.PackageDelivered
+      device: 玄関のドアホン - 玄関
+
+  actions:
+    - type: assistant.command.Broadcast
+      message: "玄関に荷物が置き配されました。"

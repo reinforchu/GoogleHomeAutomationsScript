@@ -1,0 +1,18 @@
+metadata:
+  name: HomePresenceChecker
+  description: Home presence is true
+
+automations:
+  starters:
+    - type: assistant.event.OkGoogle
+      eventData: query
+      is: "在宅確認"
+
+  condition:
+    type: home.state.HomePresence
+    state: homePresenceMode
+    is: HOME
+
+  actions:
+    - type: assistant.command.Broadcast
+      message: "Home presence mode は true で、在宅状態です。"

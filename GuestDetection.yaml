@@ -1,0 +1,14 @@
+metadata:
+  name: GuestDetection
+  description: Guest detect notification
+
+automations:
+  starters:
+    - type: device.event.PersonDetection
+      device: 玄関のドアホン - 玄関
+      for: 20sec
+      suppressFor: 120sec
+
+  actions:
+    - type: assistant.command.Broadcast
+      message: "玄関にどなたかがいらっしゃったようです。来客の可能性があります。"

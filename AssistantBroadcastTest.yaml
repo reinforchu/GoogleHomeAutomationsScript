@@ -1,0 +1,25 @@
+metadata:
+  name: AssistantBroadcastTest
+  description: Assistant speaker broadcast message test
+
+inputValue:
+  msg: "ブロードキャストメッセージのテストです。"
+input:
+  msg:
+    metadata:
+      name:
+        en: msg
+      description:
+        en: Message body
+    selector:
+      type: text
+
+automations:
+  starters:
+    - type: assistant.event.OkGoogle
+      eventData: query
+      is: "ブロードキャストテスト"
+
+  actions:
+    - type: assistant.command.Broadcast
+      message: $msg

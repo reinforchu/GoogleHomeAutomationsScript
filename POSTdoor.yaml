@@ -1,0 +1,15 @@
+metadata:
+  name: POSTdoor
+  description: Door post motion detection
+
+automations:
+  starters:
+    - type: device.state.OnOff
+      state: on
+      is: true
+      device: センサー - 玄関
+      # Note: Switchbot Sensor
+
+  actions:
+    - type: assistant.command.Broadcast
+      message: "玄関の郵便受けに投函されました。"

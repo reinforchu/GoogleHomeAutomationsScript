@@ -1,0 +1,38 @@
+metadata:
+  name: BackForwarding
+  description: Launch home
+
+inputValue:
+  cmdHome: "ホーム画面に戻って"
+input:
+  cmdHome:
+    metadata:
+      name:
+        en: Command Home
+      description:
+        en: BackForwarding home commnad
+    selector:
+      type: text
+
+automations:
+  starters:
+    - type: assistant.event.OkGoogle
+      eventData: query
+      is: "ホーム画面"
+
+  actions:
+    - type: assistant.command.OkGoogle
+      devices: 制御盤 - サーバールーム
+      okGoogle: $cmdHome
+    - type: assistant.command.OkGoogle
+      devices: キッチン - キッチン
+      okGoogle: $cmdHome
+    - type: assistant.command.OkGoogle
+      devices: ダイニングルーム - ダイニングルーム
+      okGoogle: $cmdHome
+    - type: assistant.command.OkGoogle
+      devices: 寝室 - 寝室
+      okGoogle: $cmdHome
+    - type: assistant.command.OkGoogle
+      devices: 和室 - 和室
+      okGoogle: $cmdHome
