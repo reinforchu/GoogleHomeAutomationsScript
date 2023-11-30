@@ -1,0 +1,32 @@
+metadata:
+  name: AutoDoorUnlocker
+  description: If family detection, auto unlock door
+
+automations:
+  starters:
+    - type: device.event.FaceFamiliarDetection
+      device: 玄関 - 玄関
+
+  actions:
+    - type: assistant.command.Broadcast
+      message: "顔認識で家族を検出しました。家の鍵を解錠します。"
+    - type: device.command.SetVolume
+      volumeLevel: 0
+      devices: 制御盤 - サーバールーム
+    - type: time.delay
+      for: 3sec
+    - type: assistant.command.OkGoogle
+      okGoogle: "家の鍵を開けて"
+      devices: 制御盤 - サーバールーム
+    - type: time.delay
+      for: 5sec
+    - type: assistant.command.OkGoogle
+      okGoogle: 123456
+      devices: 制御盤 - サーバールーム
+    - type: time.delay
+      for: 30sec
+    - type: device.command.SetVolume
+      volumeLevel: 40
+      devices: 制御盤 - サーバールーム
+    - type: time.delay
+      for: 3min
